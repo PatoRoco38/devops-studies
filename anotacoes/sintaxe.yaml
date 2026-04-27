@@ -1,0 +1,90 @@
+# ****************************** Sintaxe básica do YAML ******************************
+host: geek
+datacenter:
+  location: Goiânia
+  router: 42
+roles:
+  - web
+  - dns
+
+host2: geek
+datacenter2:
+  location: Goiânia
+  router: 42
+
+# Regras de mapeamento: Sempre utilizar 2 espaços no lugar de tabulações.
+# Arquivos funcionam com chave e valor.
+
+# Estilo 1: Chave-Valor Simples (preferencialmente utilizado para configurações simples), também chamado de estilo de bloco.
+host1: geek
+datacenter1:
+  location: Goiânia
+  router: 42
+roles1:
+  - web
+  - dns
+
+# Estilo 2: Chave-Valor Complexo (utilizado para estruturas mais complexas ou aninhadas), também conhecido como estilo de fluxo.
+host3: "geek"
+datacenter3: { location: 
+  Goiânia, router: 42 }
+roles3: [ web, dns ]
+
+# ****************************** Estruturas yaml ******************************
+
+# Em arquivos que contenham apenas uma configuração, a utilização dos três traços (---) é opcional, mas é uma boa prática incluí-los 
+# para indicar claramente o início de um documento YAML. 
+
+# Em arquivos que contenham múltiplas configurações ou documentos, os três traços (---) são necessários para separar cada documento 
+# dentro do arquivo YAML. Eles ajudam a organizar e estruturar o conteúdo, tornando mais fácil a leitura e a manutenção do arquivo. 
+
+host4: geek
+datacenter4:
+  location: Goiânia
+  router: 42
+  switch: 34
+---
+host4: udemy
+datacenter4:
+  location: Colorado
+  router: 23
+  switch: 21
+
+# Dessa forma, os nomes duplicados, como o host4 no exemplo acima, não causam conflitos, pois cada documento é tratado 
+# de forma independente.
+---
+# ****************************** TAGS ******************************
+# As tags em YAML são usadas para indicar o tipo de dados de um valor específico. 
+# Elas ajudam a interpretar corretamente os dados.
+
+%TAG ! tag:host:geek:
+---
+host: geek
+datacenter:
+  location: !GEEK Goiânia
+  router: "42" # Permite o uso de \n para quebra de linha
+  switch: '34' # Não permite o uso de \n para quebra de linha
+---
+host: udemy
+datacenter:
+  location: Colorado
+  router: !!str 23
+  switch: !!str 21
+
+# ****************************** Ancoras ******************************
+
+# As âncoras em YAML são usadas para criar referências a valores ou estruturas de dados dentro do mesmo documento.
+---
+host: geek
+datacenter:
+  location: &GO Goiânia # Define a âncora "GO" para o valor "Goiânia"
+---
+host: udemy
+datacenter:
+  location: *GO
+---
+roles: &ghost
+  - webserver
+  - database
+---
+roles: *ghost # Outro exemplo de uso da âncora.

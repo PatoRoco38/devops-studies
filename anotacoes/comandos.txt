@@ -1,0 +1,7 @@
+# Comando para gerar a imagem a partir de um docker file 
+
+docker build -f NOME_DO_ARQUIVO_DOCKER -t NOME_DO_USUARIO_DOCKER_HUB/NOME_DA_IMAGEM:TAG LOCALIZAÇÃO_DO_ARQUIVO
+# Exemplo:
+
+# No exemplo abaixo o ponto (.) significa o diretório atual
+docker build -f Dockerfile -t patoroco38/servidor_web:v1 .
