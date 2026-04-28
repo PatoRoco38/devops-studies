@@ -1,7 +1,17 @@
 # Comando para gerar a imagem a partir de um docker file 
-
 docker build -f NOME_DO_ARQUIVO_DOCKER -t NOME_DO_USUARIO_DOCKER_HUB/NOME_DA_IMAGEM:TAG LOCALIZAÇÃO_DO_ARQUIVO
 # Exemplo:
-
-# No exemplo abaixo o ponto (.) significa o diretório atual
+## No exemplo abaixo o ponto (.) significa o diretório atual
 docker build -f Dockerfile -t patoroco38/servidor_web:v1 .
+
+# Publicar imagem no docker hub.
+docker image push NOME_DE_USUARIO_DOCKER_HUB/NOME_DA_IMAGEM:TAG
+# Exemplo:
+docker image push patoroco38/servidor_web:v1
+
+# Lista as imagens
+docker image ls
+
+# Renomear imagem
+## docker tag NOME_ATUAL_DA_IMAGEM NOVO_NOME_DA_IMAGEM
+docker tag patoroco/fusion:v1 patoroco38/fusion:v1
