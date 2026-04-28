@@ -15,3 +15,11 @@ docker image ls
 # Renomear imagem
 ## docker tag NOME_ATUAL_DA_IMAGEM NOVO_NOME_DA_IMAGEM
 docker tag patoroco/fusion:v1 patoroco38/fusion:v1
+
+# Verificar portas expostas e variáveis de ambiente
+docker inspect NOME_DA_IMAGEM:TAG
+# Exemplo
+docker inspect patoroco38/fusion:v1
+
+# Ver o comando que está rodando
+docker history patoroco38/fusion:v1
