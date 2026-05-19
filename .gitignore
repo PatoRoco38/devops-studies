@@ -1,0 +1,32 @@
+# Executáveis
+*.exe
+
+# Kubernetes
+kubectl
+
+# Logs
+*.log
+
+# Arquivos temporários
+*.tmp
+*.cache
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Node (caso use futuramente)
+node_modules/
+
+# Python (caso use futuramente)
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# Docker
+*.tar
+
+# Arquivos sensíveis (boa prática)
+.env
