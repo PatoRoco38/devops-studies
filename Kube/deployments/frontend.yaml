@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-deployment
+  name: frontend-dp
   labels:
     app: frontend-app
     type: frontend
@@ -15,9 +15,9 @@ spec:
     spec:
       containers:
         - name: frontend-container
-          image: nginx
+          image: nginx:1.19.4
   selector:
     matchLabels:
       type: frontend
-  replicas: 3
+  replicas: 6
 
